@@ -1,0 +1,19 @@
+.navLink {
+	padding: 0 20px;
+	height: 75px;
+	text-align: center;
+	align-content: center;
+	text-decoration: none;
+	color: var(--text-primary);
+	user-select: none;
+}
+
+.navLink:active {
+	color: var(--text-primary);
+}
+
+.navLink:hover {
+	background-color: var(--button-primary);
+	color: var(--);
+	cursor: pointer;
+}

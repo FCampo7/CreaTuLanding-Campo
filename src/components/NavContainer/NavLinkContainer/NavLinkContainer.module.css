@@ -1,0 +1,12 @@
+.navLinkContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.widgetContainer {
+	position: fixed;
+	top: 75px;
+	right: 0;
+}

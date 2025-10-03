@@ -1,0 +1,16 @@
+.navContainer {
+	padding: 10px;
+	padding-right: 20px;
+
+	position: fixed;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+	background-color: var(--bg-secondary);
+
+	width: 100vw;
+	height: 75px;
+}
