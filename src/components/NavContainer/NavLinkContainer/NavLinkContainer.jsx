@@ -16,7 +16,6 @@ const NavLinkContainer = () => {
 			<div className={styles.navLinkContainer}>
 				<NavLink text="Home" link="#" />
 				<NavLink text="Cart" icon={ShoppingCart} onClick={toggleCart} />
-				<NavLink text="Link" link="#" />
 			</div>
 
 			{

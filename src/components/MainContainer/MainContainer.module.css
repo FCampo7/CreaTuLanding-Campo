@@ -1,5 +1,11 @@
 .main {
+	margin-top: 75px;
 	min-height: 100vh;
 
 	background-color: var(--bg-color);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }

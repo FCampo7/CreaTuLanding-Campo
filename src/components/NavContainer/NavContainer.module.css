@@ -1,8 +1,10 @@
 .navContainer {
+	margin: 0;
 	padding: 10px;
 	padding-right: 20px;
 
 	position: fixed;
+	top: 0;
 
 	display: flex;
 	flex-direction: row;
