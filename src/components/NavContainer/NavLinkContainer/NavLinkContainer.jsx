@@ -1,27 +1,48 @@
 import { useState } from "react";
 import NavLink from "./NavLink/NavLink";
 import styles from "./NavLinkContainer.module.css";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Menu } from "lucide-react";
 import CartWidget from "./CartWidget/CartWidget";
 
 const NavLinkContainer = () => {
 	const [isCartOpen, setIsCartOpen] = useState(false);
+	const [isHamburger, setIsHamburger] = useState(true);
 
 	const toggleCart = () => {
 		setIsCartOpen(!isCartOpen);
 	};
 
+	const toggleHamburger = () => {
+		setIsHamburger(!isHamburger);
+	};
+
+	const HamburgerMenu = () => (
+		<div className={styles.hamburgerMenu} onClick={toggleHamburger}>
+			<Menu />
+		</div>
+	);
+
 	return (
 		<>
-			<div className={styles.navLinkContainer}>
+			<div
+				className={`${styles.navLinkContainer} ${
+					isHamburger ? styles.visible : styles.hidden
+				}`}
+			>
 				<NavLink text="Home" link="#" />
 				<NavLink text="Cart" icon={ShoppingCart} onClick={toggleCart} />
 			</div>
 
+			<HamburgerMenu />
+
 			{
 				/* Esto es para renderizar el widget del carrito */
 				isCartOpen && (
-					<div className={styles.widgetContainer}>
+					<div
+						className={`${styles.widgetContainer} ${
+							isCartOpen ? styles.visible : styles.hidden
+						}`}
+					>
 						<CartWidget />
 					</div>
 				)

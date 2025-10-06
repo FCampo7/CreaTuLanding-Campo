@@ -14,6 +14,11 @@
 
 .navLink:hover {
 	background-color: var(--button-primary);
-	color: var(--);
 	cursor: pointer;
+}
+
+@media screen and (max-width: 380px) {
+	.navLink {
+		width: 100vw;
+	}
 }

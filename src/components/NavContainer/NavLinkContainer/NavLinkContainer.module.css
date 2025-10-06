@@ -3,10 +3,68 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+
+	background-color: var(--bg-secondary);
 }
 
 .widgetContainer {
 	position: fixed;
 	top: 75px;
 	right: 0;
+
+	display: flex;
+}
+
+.hamburgerMenu {
+	position: absolute;
+	top: calc(75px / 2 - 32px / 2);
+	right: 24px;
+
+	height: 32px;
+	width: 32px;
+
+	border: 1px solid black;
+	border-radius: 4px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	display: none;
+}
+
+@keyframes hamburgerOpen {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 100;
+	}
+}
+
+.visible {
+	display: flex;
+	animation: hamburgerOpen 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 380px) {
+	.navLinkContainer {
+		position: absolute;
+		top: 75px;
+		width: 100vw;
+		flex-direction: column;
+		background-color: var(--bg-color);
+	}
+
+	.widgetContainer {
+		top: calc(3 * 75px);
+	}
+
+	.hamburgerMenu {
+		display: flex;
+	}
+
+	.hidden {
+		display: none;
+	}
 }

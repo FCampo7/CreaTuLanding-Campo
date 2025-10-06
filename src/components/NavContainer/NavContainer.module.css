@@ -16,3 +16,9 @@
 	width: 100vw;
 	height: 75px;
 }
+
+@media screen and (max-width: 380px) {
+	.navContainer {
+		flex-direction: column;
+	}
+}

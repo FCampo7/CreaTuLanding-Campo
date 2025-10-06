@@ -1,6 +1,6 @@
 .cartWidget {
 	padding: 8px;
-	min-width: 500px;
+	min-width: 328px;
 	min-height: 500px;
 	background-color: var(--bg-secondary);
 
@@ -10,4 +10,19 @@
 	gap: 8px;
 
 	border-radius: 0 0 25px 25px;
+
+	overflow-y: scroll;
+}
+
+.cartWidget::-webkit-scrollbar {
+	display: none;
+}
+
+@media screen and (max-width: 380px) {
+	.cartWidget {
+		min-height: 400px;
+		max-height: 400px;
+
+		width: 100vw;
+	}
 }
