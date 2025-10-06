@@ -1,5 +1,13 @@
 .cartWidget {
-	width: 500px;
-	height: 500px;
+	padding: 8px;
+	min-width: 500px;
+	min-height: 500px;
 	background-color: var(--bg-secondary);
+
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	gap: 8px;
+
+	border-radius: 0 0 25px 25px;
 }

@@ -1,0 +1,23 @@
+.itemCard {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 1rem;
+}
+
+.image {
+	border-radius: 50%;
+	height: 48px;
+	width: 48px;
+	border: 1px solid black;
+}
+
+.title {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.description {
+	font-size: 12px;
+}
