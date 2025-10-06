@@ -6,7 +6,7 @@ import CartWidget from "./CartWidget/CartWidget";
 
 const NavLinkContainer = () => {
 	const [isCartOpen, setIsCartOpen] = useState(false);
-	const [isHamburger, setIsHamburger] = useState(true);
+	const [isHamburger, setIsHamburger] = useState(false);
 
 	const toggleCart = () => {
 		setIsCartOpen(!isCartOpen);
