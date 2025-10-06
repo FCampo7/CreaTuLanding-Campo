@@ -1,6 +1,6 @@
 import Logo from "../Logo/Logo.jsx";
-import styles from "./NavContainer.module.css";
 import NavLinkContainer from "./NavLinkContainer/NavLinkContainer.jsx";
+import styles from "./NavContainer.module.css";
 
 const NavContainer = () => {
 	return (

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import NavLink from "./NavLink/NavLink";
-import styles from "./NavLinkContainer.module.css";
 import { ShoppingCart, Menu } from "lucide-react";
+import NavLink from "./NavLink/NavLink";
 import CartWidget from "./CartWidget/CartWidget";
+import styles from "./NavLinkContainer.module.css";
 
 const NavLinkContainer = () => {
 	const [isCartOpen, setIsCartOpen] = useState(false);

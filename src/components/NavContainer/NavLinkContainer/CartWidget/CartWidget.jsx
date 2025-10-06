@@ -1,6 +1,6 @@
-import styles from "./CartWidget.module.css";
 import ItemWidget from "./ItemWidget/ItemWidget";
 import img from "../../../../assets/Avra-Studio-Logo.png";
+import styles from "./CartWidget.module.css";
 
 const CartWidget = () => {
 	const items = [];
@@ -14,6 +14,7 @@ const CartWidget = () => {
 			/>
 		);
 	}
+
 	return <div className={styles.cartWidget}>{items}</div>;
 };
 

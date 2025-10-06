@@ -18,7 +18,7 @@
 	display: none;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 720px) {
 	.cartWidget {
 		min-height: 400px;
 		max-height: 400px;
