@@ -1,5 +1,5 @@
 import ItemWidget from "./ItemWidget/ItemWidget";
-import img from "../../../../assets/Avra-Studio-Logo.png";
+import img from "../../../../assets/Avra-Studio-Full-Logo.png";
 import styles from "./CartWidget.module.css";
 
 const CartWidget = () => {

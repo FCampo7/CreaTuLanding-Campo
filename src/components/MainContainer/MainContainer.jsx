@@ -1,12 +1,12 @@
 import ItemListContainer from "./ItemListContainer/ItemListContainer";
 import styles from "./MainContainer.module.css";
-import logo from "../../assets/Avra-Studio-Logo.png";
+import fullLogo from "../../assets/Avra-Studio-Full-Logo.png";
 
 const MainContainer = () => {
 	return (
 		<>
 			<main className={styles.main}>
-				<img width={120} src={logo} />
+				<img width={120} src={fullLogo} />
 				<ItemListContainer />
 			</main>
 		</>
