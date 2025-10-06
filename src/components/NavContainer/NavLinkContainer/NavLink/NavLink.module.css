@@ -17,7 +17,7 @@
 	cursor: pointer;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 720px) {
 	.navLink {
 		width: 100vw;
 	}
