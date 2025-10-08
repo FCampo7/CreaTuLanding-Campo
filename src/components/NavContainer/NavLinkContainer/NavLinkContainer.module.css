@@ -44,7 +44,7 @@
 
 .visible {
 	display: flex;
-	animation: hamburgerOpen 0.5s ease-in-out;
+	animation: hamburgerOpen 0.35s ease-in-out;
 }
 
 @media screen and (max-width: 720px) {
