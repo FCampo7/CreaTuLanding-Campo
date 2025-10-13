@@ -31,12 +31,10 @@ const NavLinkContainer = () => {
 			>
 				<NavLink link="#">
 					<Home height={16} />
-					&nbsp;
 					<p>Home</p>
 				</NavLink>
 				<NavLink onClick={toggleCart}>
 					<ShoppingCart height={16} />
-					&nbsp;
 					<p>Cart</p>
 				</NavLink>
 			</div>
