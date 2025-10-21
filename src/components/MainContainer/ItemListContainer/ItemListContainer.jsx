@@ -1,13 +1,13 @@
 import styles from "./ItemListContainer.module.css";
-import FetchProducts from "../../FetchProducts";
-import Products from "../../Products";
+import Products from "./Products";
 
 const ItemListContainer = () => {
 	return (
 		<>
-			<h3>Bienvenido</h3>
-			<FetchProducts />
-			<Products />
+			<h3>Products</h3>
+			<div className={styles.itemListContainer}>
+				<Products />
+			</div>
 		</>
 	);
 };

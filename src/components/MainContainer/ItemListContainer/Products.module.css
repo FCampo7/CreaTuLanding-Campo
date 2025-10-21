@@ -1,0 +1,113 @@
+.itemList {
+	margin: 25px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.card {
+	padding: 10px;
+	background-color: var(--bg-secondary);
+	min-height: 36rem;
+	width: 250px;
+	border-radius: 25px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.card .img {
+	width: calc(250px - 10px);
+	height: 280px;
+}
+
+.card .title {
+	font-weight: 550;
+	font-size: 20px;
+	text-align: center;
+}
+
+.card .cardContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.card .pricing {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	gap: 1rem;
+}
+
+.card .pricing .botonera {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+
+.card .pricing .botonera button {
+	padding: 5px;
+	width: 100px;
+	border-radius: 8px;
+	cursor: pointer;
+	background-color: var(--button-primary);
+	font-weight: 525;
+}
+
+/*
+LOADER
+*/
+.loader {
+	width: 48px;
+	height: 48px;
+	border: 3px dotted #333;
+	border-style: solid solid dotted dotted;
+	border-radius: 50%;
+	display: inline-block;
+	position: relative;
+	box-sizing: border-box;
+	animation: rotation 2s linear infinite;
+}
+.loader::after {
+	content: "";
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	border: 3px dotted #ff3d00;
+	border-style: solid solid dotted;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	animation: rotationBack 1s linear infinite;
+	transform-origin: center center;
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@keyframes rotationBack {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
