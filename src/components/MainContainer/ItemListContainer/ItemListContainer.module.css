@@ -5,3 +5,11 @@
 	justify-content: center;
 	min-height: calc(100vh - 240px);
 }
+
+.products {
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}

@@ -59,7 +59,7 @@
 	}
 
 	.widgetContainer {
-		top: calc(3 * 75px);
+		top: calc(4 * 75px);
 	}
 
 	.hamburgerMenu {
@@ -68,5 +68,40 @@
 
 	.hidden {
 		display: none;
+	}
+}
+
+/*
+NavLink
+*/
+
+.navLink {
+	padding: 0 20px;
+	height: 75px;
+	text-align: center;
+	align-content: center;
+	text-decoration: none;
+	color: var(--text-primary);
+	user-select: none;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 4px;
+}
+
+.navLink:active {
+	color: var(--text-primary);
+}
+
+.navLink:hover {
+	background-color: var(--button-primary);
+	cursor: pointer;
+}
+
+@media screen and (max-width: 720px) {
+	.navLink {
+		width: 100vw;
 	}
 }

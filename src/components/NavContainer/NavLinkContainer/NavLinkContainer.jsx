@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { ShoppingCart, Menu, Home } from "lucide-react";
-import NavLink from "./NavLink/NavLink";
+import { ShoppingBasket, ShoppingCart, Menu, Home } from "lucide-react";
 import CartWidget from "./CartWidget/CartWidget";
 import styles from "./NavLinkContainer.module.css";
+import { NavLink } from "react-router-dom";
 
 const NavLinkContainer = () => {
 	const [isCartOpen, setIsCartOpen] = useState(false);
@@ -29,11 +29,15 @@ const NavLinkContainer = () => {
 					isHamburger ? styles.visible : styles.hidden
 				}`}
 			>
-				<NavLink link="#">
+				<NavLink className={styles.navLink} to="/">
 					<Home height={16} />
 					<p>Home</p>
 				</NavLink>
-				<NavLink onClick={toggleCart}>
+				<NavLink className={styles.navLink} to="/products">
+					<ShoppingBasket height={16} />
+					<p>Products</p>
+				</NavLink>
+				<NavLink className={styles.navLink} onClick={toggleCart}>
 					<ShoppingCart height={16} />
 					<p>Cart</p>
 				</NavLink>

@@ -1,4 +1,3 @@
-import ItemListContainer from "./ItemListContainer/ItemListContainer";
 import styles from "./MainContainer.module.css";
 import fullLogo from "../../assets/Avra-Studio-Full-Logo.png";
 
@@ -7,7 +6,7 @@ const MainContainer = () => {
 		<>
 			<main className={styles.main}>
 				<img width={120} src={fullLogo} />
-				<ItemListContainer />
+				<h3>Bienvenidos</h3>
 			</main>
 		</>
 	);
