@@ -1,5 +1,7 @@
+import { NavLink } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import styles from "./Products.module.css";
+import loader from "../../../css/loader.module.css";
 import { ShoppingCart } from "lucide-react";
 
 const url = "https://dummyjson.com/products/?limit=12&skip=0&delay=1000";
@@ -11,7 +13,7 @@ const Products = () => {
 
 	return (
 		<>
-			{loading && <span className={styles.loader}></span>}
+			{loading && <span className={loader.loader}></span>}
 			{error && <p>Error: {error}</p>}
 			{data && (
 				<div className={styles.itemList}>
@@ -32,6 +34,12 @@ const Products = () => {
 									<button>
 										<ShoppingCart height={16} />
 									</button>
+									<NavLink
+										className={styles.navLink}
+										to={`/details/${product.id}`}
+									>
+										View details
+									</NavLink>
 								</div>
 							</div>
 						</div>

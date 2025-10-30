@@ -2,6 +2,7 @@ import NavContainer from "./components/NavContainer/NavContainer.jsx";
 import MainContainer from "./components/MainContainer/MainContainer.jsx";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import ItemListContainer from "./components/MainContainer/ItemListContainer/ItemListContainer.jsx";
+import Details from "./components/MainContainer/Details/Details.jsx";
 
 function App() {
 	return (
@@ -10,6 +11,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<MainContainer />} />
 				<Route path="/products" element={<ItemListContainer />} />
+				<Route path="/details/:productId" element={<Details />} />
 			</Routes>
 		</BrowserRouter>
 	);
