@@ -1,5 +1,5 @@
 import styles from "./ItemListContainer.module.css";
-import Products from "./Products";
+import Products from "../Products/Products";
 
 const ItemListContainer = () => {
 	return (

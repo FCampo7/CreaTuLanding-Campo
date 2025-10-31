@@ -33,7 +33,7 @@ const NavLinkContainer = () => {
 					<Home height={16} />
 					<p>Home</p>
 				</NavLink>
-				<NavLink className={styles.navLink} to="/products">
+				<NavLink className={styles.navLink} to={`/products`}>
 					<ShoppingBasket height={16} />
 					<p>Products</p>
 				</NavLink>

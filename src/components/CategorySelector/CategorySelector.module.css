@@ -1,0 +1,34 @@
+.pickerContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.label {
+	font-weight: 600;
+	color: #333;
+	font-size: 1rem;
+}
+
+.select {
+	padding: 0.5rem 0.75rem;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	font-size: 1rem;
+	background-color: #fff;
+	color: #333;
+	cursor: pointer;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.select:hover {
+	border-color: #8b5e3c;
+}
+
+.select:focus {
+	outline: none;
+	border-color: #8b5e3c;
+	box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.2);
+}
