@@ -1,21 +1,26 @@
 import ItemWidget from "./ItemWidget/ItemWidget";
-import img from "../../../../assets/Avra-Studio-Full-Logo.png";
 import styles from "./CartWidget.module.css";
+import { useCart } from "../../../../context/CartProvider";
 
 const CartWidget = () => {
-	const items = [];
+	const { cart, clearCart, totalPrice } = useCart();
 
-	for (let i = 0; i < 10; i++) {
-		items.push(
-			<ItemWidget
-				name={"item #" + i}
-				image={img}
-				description="Descripción"
-			/>
-		);
-	}
-
-	return <div className={styles.cartWidget}>{items}</div>;
+	return (
+		<>
+			<div className={styles.cartWidget}>
+				<button onClick={() => clearCart()}>Clear</button>
+				<p>{totalPrice}</p>
+				{cart.map((item) => (
+					<ItemWidget
+						name={item.title}
+						image={item.images[0]}
+						price={item.price}
+						quantity={item.count}
+					/>
+				))}
+			</div>
+		</>
+	);
 };
 
 export default CartWidget;

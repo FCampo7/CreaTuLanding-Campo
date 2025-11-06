@@ -29,7 +29,7 @@ const CategorySelector = ({ onSelectCategory }) => {
 	return (
 		<div className={styles.pickerContainer}>
 			<label htmlFor="category" className={styles.label}>
-				Filtrar por categoría:
+				Filter by categories:
 			</label>
 			<select
 				id="category"
@@ -37,7 +37,7 @@ const CategorySelector = ({ onSelectCategory }) => {
 				onChange={handleChange}
 				className={styles.select}
 			>
-				<option value="">Todas</option>
+				<option value="">All</option>
 				{categories.map((cat) => (
 					<option key={cat.slug} value={cat.slug}>
 						{cat.name}

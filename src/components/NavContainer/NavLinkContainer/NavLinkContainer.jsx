@@ -1,12 +1,16 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { ShoppingBasket, ShoppingCart, Menu, Home } from "lucide-react";
+
 import CartWidget from "./CartWidget/CartWidget";
 import styles from "./NavLinkContainer.module.css";
-import { NavLink } from "react-router-dom";
+import { useCart } from "../../../context/CartProvider";
 
 const NavLinkContainer = () => {
 	const [isCartOpen, setIsCartOpen] = useState(false);
 	const [isHamburger, setIsHamburger] = useState(false);
+
+	const { totalProducts } = useCart();
 
 	const toggleCart = () => {
 		setIsCartOpen(!isCartOpen);
@@ -30,16 +34,22 @@ const NavLinkContainer = () => {
 				}`}
 			>
 				<NavLink className={styles.navLink} to="/">
-					<Home height={16} />
+					<Home height={24} />
 					<p>Home</p>
 				</NavLink>
 				<NavLink className={styles.navLink} to={`/products`}>
-					<ShoppingBasket height={16} />
+					<ShoppingBasket height={24} />
 					<p>Products</p>
 				</NavLink>
 				<NavLink className={styles.navLink} onClick={toggleCart}>
-					<ShoppingCart height={16} />
-					<p>Cart</p>
+					<div style={{ position: "relative" }}>
+						<ShoppingCart size={24} />
+						{totalProducts > 0 && (
+							<span className={styles.totalItems}>
+								{totalProducts}
+							</span>
+						)}
+					</div>
 				</NavLink>
 			</div>
 

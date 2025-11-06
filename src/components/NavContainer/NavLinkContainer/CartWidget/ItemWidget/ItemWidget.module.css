@@ -18,6 +18,7 @@
 	font-weight: 600;
 }
 
-.description {
+.price {
 	font-size: 12px;
+	width: 150px;
 }

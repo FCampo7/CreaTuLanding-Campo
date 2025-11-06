@@ -2,8 +2,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import loader from "../../../css/loader.module.css";
 import styles from "./Details.module.css";
-import { Star, StepBack } from "lucide-react";
+import { ShoppingCart, Star, Undo2 } from "lucide-react";
+import { useCart } from "../../../context/CartProvider";
 
+// Rating de estrellas
 const Rating = ({ value, max = 5, showValue = true }) => {
 	const stars = [];
 
@@ -26,6 +28,7 @@ const Rating = ({ value, max = 5, showValue = true }) => {
 	);
 };
 
+// Componente de las reviews del producto
 const Review = ({ review }) => {
 	return (
 		<div key={review.id} className={styles.reviewCard}>
@@ -38,12 +41,14 @@ const Review = ({ review }) => {
 	);
 };
 
+// Componente de detalles del producto
 const Details = () => {
 	const navigate = useNavigate();
 	const params = useParams();
 	const { data, error, loading } = useFetch(
 		`https://dummyjson.com/products/${params.productId}`
 	);
+	const { addToCart } = useCart();
 
 	return (
 		<div className={styles.divContainer}>
@@ -52,7 +57,7 @@ const Details = () => {
 			{data && (
 				<div>
 					<div className={styles.productDetails}>
-						<StepBack
+						<Undo2
 							style={{
 								alignSelf: "flex-start",
 								cursor: "pointer",
@@ -70,10 +75,15 @@ const Details = () => {
 								<p className={styles.priceTag}>
 									<strong>Price:</strong> ${data.price}
 								</p>
+								<button onClick={() => addToCart(data)}>
+									<ShoppingCart size={16} />
+									<span> Add to Cart!</span>
+								</button>
 							</div>
 						</div>
 					</div>
 
+					{/** Componente de reviews */}
 					<div className={styles.reviewsContainer}>
 						{data.reviews.map((review) => (
 							<Review review={review} />

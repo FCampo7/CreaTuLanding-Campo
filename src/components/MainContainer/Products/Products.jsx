@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
-import { ShoppingCart } from "lucide-react";
+import { ChevronsLeft, ChevronsRight, ShoppingCart } from "lucide-react";
 
 import useFetch from "../../../hooks/useFetch";
 import styles from "./Products.module.css";
 import loader from "../../../css/loader.module.css";
 import CategorySelector from "../../CategorySelector/CategorySelector";
+import { useCart } from "../../../context/CartProvider";
 
+// Limite de productos por pagina
 const LIMIT = 16;
 
 const Products = () => {
@@ -14,8 +16,11 @@ const Products = () => {
 	const [searchParams] = useSearchParams();
 	const [category, setCategory] = useState("");
 
-	const page = parseInt(searchParams.get("page") || "1", 10);
+	// Contexto del cart
+	const { addToCart } = useCart();
 
+	// Pagina y skip para el paginado, viene dado por los parámetros de la url
+	const page = parseInt(searchParams.get("page") || "1", 10);
 	const skip = (page - 1) * LIMIT;
 
 	// Construcción dinámica de la URL de fetch
@@ -23,6 +28,7 @@ const Products = () => {
 	if (category) url += `/category/${category}`;
 	url += `?limit=${LIMIT}&skip=${skip}`;
 
+	// Fetch de los productos
 	const { data, error, loading } = useFetch(url);
 
 	// Navegación dinámica
@@ -56,15 +62,30 @@ const Products = () => {
 			{error && <p>Error: {error}</p>}
 			{data && data.limit > 0 && (
 				<>
+					{/** filtro de categorías */}
 					<CategorySelector onSelectCategory={setCategory} />
+
+					{/** Botones de paginado */}
 					<div className={styles.navPages}>
 						{page > 1 && (
-							<button onClick={prevPage}> {"<<"} </button>
+							<button
+								style={{ width: "50px" }}
+								onClick={prevPage}
+							>
+								<ChevronsLeft />
+							</button>
 						)}
 						{page * LIMIT < data.total && (
-							<button onClick={nextPage}> {">>"} </button>
+							<button
+								style={{ width: "50px" }}
+								onClick={nextPage}
+							>
+								<ChevronsRight />
+							</button>
 						)}
 					</div>
+
+					{/** Tarjetas de los productos */}
 					<div className={styles.itemList}>
 						{data.products.map((product) => (
 							<div className={styles.card} key={product.id}>
@@ -84,8 +105,9 @@ const Products = () => {
 								<div className={styles.pricing}>
 									<p>${product.price}</p>
 									<div className={styles.botonera}>
-										<button>Buy!</button>
-										<button>
+										<button
+											onClick={() => addToCart(product)}
+										>
 											<ShoppingCart height={16} />
 										</button>
 										<NavLink
@@ -99,12 +121,24 @@ const Products = () => {
 							</div>
 						))}
 					</div>
+
+					{/** Botones de paginado */}
 					<div className={styles.navPages}>
 						{page > 1 && (
-							<button onClick={prevPage}> {"<<"} </button>
+							<button
+								style={{ width: "50px" }}
+								onClick={prevPage}
+							>
+								<ChevronsLeft />
+							</button>
 						)}
 						{page * LIMIT < data.total && (
-							<button onClick={nextPage}> {">>"} </button>
+							<button
+								style={{ width: "50px" }}
+								onClick={nextPage}
+							>
+								<ChevronsRight />
+							</button>
 						)}
 					</div>
 				</>

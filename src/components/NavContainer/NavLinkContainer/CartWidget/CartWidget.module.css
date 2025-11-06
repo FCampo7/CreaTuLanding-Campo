@@ -1,7 +1,7 @@
 .cartWidget {
 	padding: 8px;
 	min-width: 328px;
-	min-height: 500px;
+	max-height: 500px;
 	background-color: var(--bg-secondary);
 
 	display: flex;
