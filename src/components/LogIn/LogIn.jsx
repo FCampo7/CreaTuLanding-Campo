@@ -35,7 +35,8 @@ const LogIn = () => {
 
 			navigate("/products");
 		} catch (err) {
-			console.error(err.message);
+			setError(err.code);
+			setLoading(false);
 		}
 	};
 
