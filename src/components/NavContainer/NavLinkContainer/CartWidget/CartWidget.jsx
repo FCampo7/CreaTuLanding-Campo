@@ -8,16 +8,21 @@ const CartWidget = () => {
 	return (
 		<>
 			<div className={styles.cartWidget}>
-				<button onClick={() => clearCart()}>Clear</button>
-				<p>{totalPrice}</p>
+				<button className={styles.button} onClick={() => clearCart()}>
+					Clear
+				</button>
 				{cart.map((item) => (
 					<ItemWidget
-						name={item.title}
+						key={item.snapshotName}
+						name={item.snapshotName}
 						image={item.images[0]}
 						price={item.price}
-						quantity={item.count}
+						quantity={item.quantity}
 					/>
 				))}
+				<p className={styles.totalPrice}>
+					<strong>Total:</strong> ${totalPrice}
+				</p>
 			</div>
 		</>
 	);

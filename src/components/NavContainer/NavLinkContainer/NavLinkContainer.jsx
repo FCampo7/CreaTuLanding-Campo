@@ -5,10 +5,13 @@ import { ShoppingBasket, ShoppingCart, Menu, Home } from "lucide-react";
 import CartWidget from "./CartWidget/CartWidget";
 import styles from "./NavLinkContainer.module.css";
 import { useCart } from "../../../context/CartProvider";
+import { useUser } from "../../../context/UserContext";
 
 const NavLinkContainer = () => {
 	const [isCartOpen, setIsCartOpen] = useState(false);
 	const [isHamburger, setIsHamburger] = useState(false);
+
+	const { user, handleLogout } = useUser();
 
 	const { totalProducts } = useCart();
 
@@ -51,6 +54,19 @@ const NavLinkContainer = () => {
 						)}
 					</div>
 				</NavLink>
+				{user ? (
+					<NavLink
+						className={styles.navLink}
+						onClick={handleLogout}
+						to="/"
+					>
+						Log Out
+					</NavLink>
+				) : (
+					<NavLink className={styles.navLink} to="/login">
+						<p>Log In</p>
+					</NavLink>
+				)}
 			</div>
 
 			<HamburgerMenu />

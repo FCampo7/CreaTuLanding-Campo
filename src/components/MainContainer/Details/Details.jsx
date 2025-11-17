@@ -48,7 +48,15 @@ const Details = () => {
 	const { data, error, loading } = useFetch(
 		`https://dummyjson.com/products/${params.productId}`
 	);
-	const { addToCart } = useCart();
+	const { user, addToCart } = useCart();
+
+	const handlerAddToCart = (product) => {
+		if (user == null) {
+			navigate("/login");
+			return;
+		}
+		addToCart(product);
+	};
 
 	return (
 		<div className={styles.divContainer}>
@@ -75,7 +83,10 @@ const Details = () => {
 								<p className={styles.priceTag}>
 									<strong>Price:</strong> ${data.price}
 								</p>
-								<button onClick={() => addToCart(data)}>
+								<button
+									className={styles.button}
+									onClick={() => handlerAddToCart(data)}
+								>
 									<ShoppingCart size={16} />
 									<span> Add to Cart!</span>
 								</button>

@@ -20,11 +20,37 @@
 	display: none;
 }
 
+.totalPrice {
+	align-self: flex-end;
+}
+
+.button {
+	width: 100%;
+	padding: 12px 16px;
+	background-color: var(--button-primary);
+	color: white;
+	font-weight: 600;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 1rem;
+	margin-top: 6px;
+	transition: background 0.25s ease;
+}
+
+.button:hover:not(:disabled) {
+	background-color: var(--color-accent);
+}
+
+.button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
 @media screen and (max-width: 720px) {
 	.cartWidget {
-		min-height: 400px;
 		max-height: 400px;
 
-		width: 100vw;
+		width: calc(100vw - 16px);
 	}
 }

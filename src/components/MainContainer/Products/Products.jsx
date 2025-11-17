@@ -17,7 +17,7 @@ const Products = () => {
 	const [category, setCategory] = useState("");
 
 	// Contexto del cart
-	const { addToCart } = useCart();
+	const { user, addToCart } = useCart();
 
 	// Pagina y skip para el paginado, viene dado por los parámetros de la url
 	const page = parseInt(searchParams.get("page") || "1", 10);
@@ -55,6 +55,14 @@ const Products = () => {
 	useEffect(() => {
 		navigate(`/products?page=1&category=${category}`);
 	}, [category]);
+
+	const handlerAddToCart = (product) => {
+		if (user == null) {
+			navigate("/login");
+			return;
+		}
+		addToCart(product);
+	};
 
 	return (
 		<>
@@ -106,7 +114,9 @@ const Products = () => {
 									<p>${product.price}</p>
 									<div className={styles.botonera}>
 										<button
-											onClick={() => addToCart(product)}
+											onClick={() =>
+												handlerAddToCart(product)
+											}
 										>
 											<ShoppingCart height={16} />
 										</button>

@@ -1,9 +1,10 @@
 .itemCard {
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: flex-start;
-	gap: 1rem;
+	justify-content: start;
+	gap: 8px;
 }
 
 .image {
@@ -20,5 +21,5 @@
 
 .price {
 	font-size: 12px;
-	width: 150px;
+	margin-left: auto;
 }
