@@ -8,7 +8,7 @@ const CartWidget = () => {
 	return (
 		<>
 			<div className={styles.cartWidget}>
-				<button className={styles.button} onClick={() => clearCart()}>
+				<button className={styles.button} onClick={clearCart}>
 					Clear
 				</button>
 				{cart.map((item) => (

@@ -8,9 +8,9 @@ const Page404 = () => {
 			<Frown size={162} color="#635151ff" />
 			<h2>404</h2>
 			<h3>
-				Upss! Parece que estas perdido. Revisa estos{" "}
+				Upss! Looks like you are lost. Check out these{" "}
 				<NavLink className={styles.navLink} to="/products">
-					Productos!
+					Products!
 				</NavLink>
 			</h3>
 		</div>

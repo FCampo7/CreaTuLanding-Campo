@@ -64,6 +64,23 @@ const Products = () => {
 		addToCart(product);
 	};
 
+	const BotonesPaginado = () => {
+		return (
+			<div className={styles.navPages}>
+				{page > 1 && (
+					<button style={{ width: "50px" }} onClick={prevPage}>
+						<ChevronsLeft />
+					</button>
+				)}
+				{page * LIMIT < data.total && (
+					<button style={{ width: "50px" }} onClick={nextPage}>
+						<ChevronsRight />
+					</button>
+				)}
+			</div>
+		);
+	};
+
 	return (
 		<>
 			{loading && <span className={loader.loader}></span>}
@@ -74,24 +91,7 @@ const Products = () => {
 					<CategorySelector onSelectCategory={setCategory} />
 
 					{/** Botones de paginado */}
-					<div className={styles.navPages}>
-						{page > 1 && (
-							<button
-								style={{ width: "50px" }}
-								onClick={prevPage}
-							>
-								<ChevronsLeft />
-							</button>
-						)}
-						{page * LIMIT < data.total && (
-							<button
-								style={{ width: "50px" }}
-								onClick={nextPage}
-							>
-								<ChevronsRight />
-							</button>
-						)}
-					</div>
+					<BotonesPaginado />
 
 					{/** Tarjetas de los productos */}
 					<div className={styles.itemList}>
@@ -133,24 +133,7 @@ const Products = () => {
 					</div>
 
 					{/** Botones de paginado */}
-					<div className={styles.navPages}>
-						{page > 1 && (
-							<button
-								style={{ width: "50px" }}
-								onClick={prevPage}
-							>
-								<ChevronsLeft />
-							</button>
-						)}
-						{page * LIMIT < data.total && (
-							<button
-								style={{ width: "50px" }}
-								onClick={nextPage}
-							>
-								<ChevronsRight />
-							</button>
-						)}
-					</div>
+					<BotonesPaginado />
 				</>
 			)}
 		</>
