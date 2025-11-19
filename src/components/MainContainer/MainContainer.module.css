@@ -1,6 +1,7 @@
 .main {
 	margin-top: 75px;
 	min-height: calc(100vh - 75px - 164px);
+	padding: 8px;
 
 	background-color: var(--bg-color);
 
@@ -22,20 +23,8 @@
 	text-align: center;
 }
 
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(6px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
 .subtitle {
 	max-width: 480px;
-	opacity: 0.8;
 	font-size: 15px;
 	margin-top: 8px;
 	text-align: center;
@@ -47,5 +36,15 @@
 	text-align: left;
 	font-size: 14px;
 	line-height: 1.5;
-	opacity: 0.85;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
