@@ -23,6 +23,19 @@ function CartProvider({ children }) {
 	const [cart, setCart] = useState([]); // items
 	const [pendingCartId, setPendingCartId] = useState(null);
 
+	const createNewCart = async () => {
+		const newCart = {
+			userId: user.uid,
+			status: "pending",
+			items: [],
+			total: 0,
+			createdAt: new Date(),
+		};
+
+		const created = await addDoc(collection(db, "carts"), newCart);
+		return { id: created.id, ...newCart };
+	};
+
 	// Cuando hay un usuario se cargar su carrito pending
 	useEffect(() => {
 		if (!user) {
@@ -49,21 +62,9 @@ function CartProvider({ children }) {
 						pendingCart = { id: docu.id, ...data };
 				});
 
-				// Si NO existe un carrito pending → crearlo
+				// Si NO existe un carrito pending -> crearlo
 				if (!pendingCart) {
-					const newCart = {
-						userId: user.uid,
-						status: "pending",
-						items: [],
-						total: 0,
-						createdAt: new Date(),
-					};
-
-					const created = await addDoc(
-						collection(db, "carts"),
-						newCart
-					);
-					pendingCart = { id: created.id, ...newCart };
+					pendingCart = await createNewCart();
 				}
 
 				setPendingCartId(pendingCart.id);
@@ -129,6 +130,7 @@ function CartProvider({ children }) {
 		});
 	};
 
+	// Disminuir en uno la cantidad de un mismo producto
 	const subtractFromCart = async (product) => {
 		if (!user || !pendingCartId) return;
 
@@ -174,6 +176,28 @@ function CartProvider({ children }) {
 		});
 	};
 
+	// Cambiar estado del carrito y crear uno nuevo pendiente
+	const changeCartStatus = async (status) => {
+		if (!pendingCartId) return;
+
+		try {
+			const cartRef = doc(db, "carts", pendingCartId);
+
+			await updateDoc(cartRef, {
+				status: status,
+			});
+
+			if (status != "pending") {
+				let pendingCart = await createNewCart();
+
+				setPendingCartId(pendingCart.id);
+				setCart(pendingCart.items || []);
+			}
+		} catch (e) {
+			console.log(e.message);
+		}
+	};
+
 	return (
 		<CartContext.Provider
 			value={{
@@ -185,6 +209,7 @@ function CartProvider({ children }) {
 				subtractFromCart,
 				removeFromCart,
 				clearCart,
+				changeCartStatus,
 			}}
 		>
 			{children}

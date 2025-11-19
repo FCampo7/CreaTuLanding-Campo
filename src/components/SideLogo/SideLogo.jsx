@@ -5,12 +5,10 @@ import { NavLink } from "react-router-dom";
 
 const SideLogo = ({ height }) => {
 	return (
-		<>
-			<NavLink className={styles.logo} to="/">
-				<img height={height} src={logo} />
-				<img height={height} src={logoText} />
-			</NavLink>
-		</>
+		<NavLink className={styles.logo} to="/">
+			<img height={height} src={logo} />
+			<img height={height} src={logoText} />
+		</NavLink>
 	);
 };
 
