@@ -5,6 +5,8 @@
 	align-items: center;
 	justify-content: start;
 	gap: 8px;
+
+	cursor: pointer;
 }
 
 .image {

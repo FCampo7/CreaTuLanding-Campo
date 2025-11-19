@@ -12,13 +12,7 @@ const CartWidget = () => {
 					Clear
 				</button>
 				{cart.map((item) => (
-					<ItemWidget
-						key={item.snapshotName}
-						name={item.snapshotName}
-						image={item.images[0]}
-						price={item.price}
-						quantity={item.quantity}
-					/>
+					<ItemWidget key={item.snapshotName} item={item} />
 				))}
 				<p className={styles.totalPrice}>
 					<strong>Total:</strong> ${totalPrice}

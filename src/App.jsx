@@ -7,6 +7,7 @@ import Page404 from "./components/MainContainer/Page404/Page404.jsx";
 import SignUp from "./components/SignUp/SignUp.jsx";
 import LogIn from "./components/LogIn/LogIn.jsx";
 import { UserProvider } from "./context/UserContext.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 					<Route path="/signup" element={<SignUp />} />
 					<Route path="*" element={<Page404 />} />
 				</Routes>
+				<Footer />
 			</BrowserRouter>
 		</UserProvider>
 	);

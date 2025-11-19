@@ -23,9 +23,7 @@ function CartProvider({ children }) {
 	const [cart, setCart] = useState([]); // items
 	const [pendingCartId, setPendingCartId] = useState(null);
 
-	// ======================================================
-	// 🔥 1. Cuando haya usuario → cargar su carrito pending
-	// ======================================================
+	// Cuando hay un usuario se cargar su carrito pending
 	useEffect(() => {
 		if (!user) {
 			setCart([]);
@@ -42,10 +40,6 @@ function CartProvider({ children }) {
 				);
 
 				const snapshot = await getDocs(q);
-
-				snapshot.forEach((documento) => {
-					console.log(documento.data());
-				});
 
 				let pendingCart = null;
 
@@ -82,17 +76,13 @@ function CartProvider({ children }) {
 		loadCart();
 	}, [user]);
 
-	// ======================================================
-	// 🔥 2. Totales
-	// ======================================================
+	// Totales
 	const totalProducts = cart.reduce((acc, item) => acc + item.quantity, 0);
 	const totalPrice = cart
 		.reduce((acc, item) => acc + item.price * item.quantity, 0)
 		.toFixed(2);
 
-	// ======================================================
-	// 🔥 3. Guardar cambios en Firestore
-	// ======================================================
+	// Guardar cambios en Firestore
 	const syncCartWithFirestore = async (newCartItems) => {
 		if (!pendingCartId) return;
 
@@ -107,9 +97,7 @@ function CartProvider({ children }) {
 		});
 	};
 
-	// ======================================================
-	// 🔥 4. Agregar producto
-	// ======================================================
+	// Agregar producto
 	const addToCart = async (product, count = 1) => {
 		if (!user || !pendingCartId) return;
 
@@ -141,9 +129,30 @@ function CartProvider({ children }) {
 		});
 	};
 
-	// ======================================================
-	// 🔥 5. Eliminar producto
-	// ======================================================
+	const subtractFromCart = async (product) => {
+		if (!user || !pendingCartId) return;
+
+		setCart((prev) => {
+			const exists = prev.find((i) => i.productId === product.id);
+
+			if (!exists) {
+				return prev;
+			}
+
+			let updated = prev
+				.map((i) =>
+					i.productId === product.id
+						? { ...i, quantity: i.quantity - 1 }
+						: i
+				)
+				.filter((i) => i.quantity > 0);
+
+			syncCartWithFirestore(updated);
+			return updated;
+		});
+	};
+
+	// Eliminar producto
 	const removeFromCart = async (productId) => {
 		if (!pendingCartId) return;
 
@@ -154,9 +163,7 @@ function CartProvider({ children }) {
 		});
 	};
 
-	// ======================================================
-	// 🔥 6. Vaciar carrito
-	// ======================================================
+	// Vaciar carrito
 	const clearCart = async () => {
 		if (!pendingCartId) return;
 
@@ -175,6 +182,7 @@ function CartProvider({ children }) {
 				totalProducts,
 				totalPrice,
 				addToCart,
+				subtractFromCart,
 				removeFromCart,
 				clearCart,
 			}}
@@ -185,64 +193,3 @@ function CartProvider({ children }) {
 }
 
 export default CartProvider;
-
-/* import { useContext, useEffect, useState } from "react";
-import { CartContext } from "./CartContext";
-
-export const useCart = () => useContext(CartContext);
-
-function CartProvider({ children }) {
-	const [cart, setCart] = useState(() => {
-		const stored = localStorage.getItem("avraCart");
-		return stored ? JSON.parse(stored) : [];
-	});
-
-	useEffect(() => {
-		localStorage.setItem("avraCart", JSON.stringify(cart));
-	}, [cart]);
-
-	const totalProducts = cart.reduce((acc, current) => acc + current.count, 0);
-
-	const totalPrice = cart
-		.reduce((acc, item) => acc + item.price * item.count, 0)
-		.toFixed(2);
-
-	const addToCart = (product, count = 1) => {
-		setCart((prev) => {
-			const existing = prev.find((item) => item.id === product.id);
-			if (existing) {
-				return prev.map((item) =>
-					item.id === product.id
-						? { ...item, count: item.count + count }
-						: item
-				);
-			} else {
-				return [...prev, { ...product, count }];
-			}
-		});
-	};
-
-	const removeFromCart = (id) => {
-		setCartItems((prev) => prev.filter((item) => item.id !== id));
-	};
-
-	const clearCart = () => setCart([]);
-
-	return (
-		<CartContext.Provider
-			value={{
-				totalProducts,
-				addToCart,
-				cart,
-				clearCart,
-				removeFromCart,
-				totalPrice,
-			}}
-		>
-			{children}
-		</CartContext.Provider>
-	);
-}
-
-export default CartProvider;
- */
