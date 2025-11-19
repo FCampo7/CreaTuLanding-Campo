@@ -122,13 +122,13 @@ react-router-dom@7.9.5
 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/FCampo7/CreaTuLanding-Campo.git
+git clone https://github.com/FCampo7/ProyectoFinalReact-Campo.git
 ```
 
 2. Ingresar al proyecto
 
 ```bash
-cd CreaTuLanding-Campo
+cd ProyectoFinalReact-Campo
 ```
 
 3. Instalar dependencias
