@@ -51,8 +51,12 @@ export default function SignUp() {
 			);
 
 			await setDoc(doc(db, "users", res.user.uid), {
-				...form,
-				rol: "user",
+				name: form.name,
+				lastName: form.lastName,
+				address: form.address,
+				phone: form.phone,
+				email: form.email,
+				rol: "client",
 				createdAt: serverTimestamp(),
 			});
 
