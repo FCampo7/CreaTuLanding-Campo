@@ -113,7 +113,7 @@ const Products = () => {
 								<div className={styles.pricing}>
 									<p>${product.price}</p>
 									<div className={styles.botonera}>
-										<button
+										<button className={styles.navLink} 
 											onClick={() =>
 												handlerAddToCart(product)
 											}
