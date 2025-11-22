@@ -68,23 +68,13 @@
 	gap: 1rem;
 }
 
-.card .pricing .botonera button {
-	padding: 5px;
-	width: 100px;
-	border-radius: 8px;
-	cursor: pointer;
-	background-color: var(--button-primary);
-	font-weight: 525;
-}
-
 .card .pricing .botonera .navLink {
 	padding: 5px;
 	width: 100px;
 	border-radius: 8px;
 	cursor: pointer;
 	background-color: var(--button-primary);
-	font-weight: 525;
-	border: 2px solid black;
+	border: 1px solid black;
 	text-decoration: none;
 	color: black;
 	text-align: center;
@@ -100,11 +90,11 @@
 
 .navPages button {
 	padding: 5px;
-	width: 32px;
+	min-width: 50px;
+	color: black;
 	border-radius: 8px;
 	cursor: pointer;
 	background-color: var(--button-primary);
-	font-weight: 525;
 }
 
 .buttons-controller {

@@ -68,12 +68,12 @@ const Products = () => {
 		return (
 			<div className={styles.navPages}>
 				{page > 1 && (
-					<button style={{ width: "50px" }} onClick={prevPage}>
+					<button onClick={prevPage}>
 						<ChevronsLeft />
 					</button>
 				)}
 				{page * LIMIT < data.total && (
-					<button style={{ width: "50px" }} onClick={nextPage}>
+					<button onClick={nextPage}>
 						<ChevronsRight />
 					</button>
 				)}
@@ -113,7 +113,8 @@ const Products = () => {
 								<div className={styles.pricing}>
 									<p>${product.price}</p>
 									<div className={styles.botonera}>
-										<button className={styles.navLink} 
+										<button
+											className={styles.navLink}
 											onClick={() =>
 												handlerAddToCart(product)
 											}
