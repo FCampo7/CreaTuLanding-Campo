@@ -8,6 +8,7 @@ import SignUp from "./components/SignUp/SignUp.jsx";
 import LogIn from "./components/LogIn/LogIn.jsx";
 import { UserProvider } from "./context/UserContext.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import Checkout from "./components/MainContainer/Checkout/Checkout.jsx";
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 					<Route path="/login" element={<LogIn />} />
 					<Route path="/signup" element={<SignUp />} />
 					<Route path="*" element={<Page404 />} />
+					<Route path="/checkout" element={<Checkout />} />
 				</Routes>
 				<Footer />
 			</BrowserRouter>

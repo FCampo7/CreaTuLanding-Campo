@@ -54,6 +54,18 @@ src/
 │   │   ├── MainContainer.jsx
 │   │   ├── MainContainer.module.css
 │   │   │
+│   │   ├── Checkout
+│   │   │   ├── Checkout.jsx
+│   │   │   ├── Checkout.module.css
+│   │   │   │
+│   │   │   ├── CheckoutCart
+│   │   │   │   ├── CheckoutCart.jsx
+│   │   │   │   └── CheckoutCart.module.css
+│   │   │   │
+│   │   │   └── CheckoutForm
+│   │   │       ├── CheckoutForm.jsx
+│   │   │       └── CheckoutForm.module.css
+│   │   │
 │   │   ├── Details
 │   │   │   ├── Details.jsx
 │   │   │   └── Details.module.css
@@ -73,18 +85,18 @@ src/
 │   ├── NavContainer
 │   │   ├── NavContainer.jsx
 │   │   └── NavContainer.module.css
-│   │
+│   │   │
 │   │   └── NavLinkContainer
 │   │       ├── NavLinkContainer.jsx
 │   │       └── NavLinkContainer.module.css
-│   │
-│   │       └── CartWidget
-│   │           ├── CartWidget.jsx
-│   │           └── CartWidget.module.css
-│   │
-│   │           └── ItemWidget
-│   │               ├── ItemWidget.jsx
-│   │               └── ItemWidget.module.css
+│   │           │
+│   │           └── CartWidget
+│   │               ├── CartWidget.jsx
+│   │               └── CartWidget.module.css
+│   │                   │
+│   │                   └── ItemWidget
+│   │                       ├── ItemWidget.jsx
+│   │                       └── ItemWidget.module.css
 │   │
 │   ├── SideLogo
 │   │   ├── SideLogo.jsx
